@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Medarbejderportal</title>
+    <link rel="stylesheet" href="fragmentStyle.css">
+    <link rel="stylesheet" href="mainPage.css">
+
 </head>
-<th:block th:include="fragment/headerFragment :: header"></th:block>
+
 <body>
-<nav id="buttonbox">
-    <button class="mainPagebuttons"><a href="addLeasePage.html">tilføj bilregistrering</a></button>
-    <button class="mainPagebuttons"><a href="rentedCarList.html">se udlejede billiste</a></button>
-</nav>
+<header>
+    <th:block th:replace="fragment/headerFragment :: header"></th:block>
+</header>
+<div id="restbody">
+    <nav id="buttonbox">
+        <button class="mainPagebuttons"><a href="addLeasePage.html">tilføj bilregistrering</a></button>
+        <button class="mainPagebuttons"><a href="rentedCarList.html">se udlejede billiste</a></button>
+        <button class="mainPagebuttons"><a href="adddamages.html">adde damage</a></button>
+    </nav>
+
+</div>
+
 
 </body>
 </html>

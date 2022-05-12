@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<th:block th:include="fragment/headerFragment :: header"></th:block>
-<body>
 
+<body>
+<header>
+    <th:block th:replace="fragment/headerFragment :: header"></th:block>
+</header>
 </body>
 </html>
