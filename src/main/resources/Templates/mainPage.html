@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Medarbejderportal</title>
+    <link rel="stylesheet" href="fragmentStyle.css">
+    <link rel="stylesheet" href="mainPage.css">
+
+</head>
+
+<body>
+<header>
+    <th:block th:replace="fragment/headerFragment :: header"></th:block>
+</header>
+<div id="restbody">
+    <nav id="buttonbox">
+        <button class="mainPagebuttons"><a href="/addLeasePage">tilføj bilregistrering</a></button>
+        <button class="mainPagebuttons"><a href="/rentedCarList">se udlejede billiste</a></button>
+        <button class="mainPagebuttons"><a href="/adddamages">adde damage</a></button>
+    </nav>
+
+</div>
+
+
+</body>
+</html>

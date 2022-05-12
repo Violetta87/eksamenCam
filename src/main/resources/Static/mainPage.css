@@ -1,0 +1,21 @@
+#restbody{
+    width:100%;
+    height: 100vh;
+    background-color: aqua;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#buttonbox{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+
+}
+a{
+    text-decoration-line: none;
+    font-weight: bolder;
+    font-family: "Bookman Old Style";
+    color: black;
+    font-size: 200%;
+}
