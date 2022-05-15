@@ -5,6 +5,7 @@ import java.sql.*;
 public class CreateConnectionMySQL {
 
     public static Connection createConnectionToMySQL() {
+        // tables er oprettet i DB
         Connection connection = null;
 
         try {
