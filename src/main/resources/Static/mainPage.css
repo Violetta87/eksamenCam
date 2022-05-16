@@ -1,17 +1,27 @@
 #restbody{
     width:100%;
     height: 100vh;
-    background-color: aqua;
-    display:flex;
+    display: flex;
+    flex-direction: row;
+}
+
+#leftbox{
+    width: 30%;
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
+    background-color: beige;
 }
 #buttonbox{
-    width: 80%;
+    width: 50%;
+    height:80vh;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-
+    padding-bottom: 60%;
 }
+
 a{
     text-decoration-line: none;
     font-weight: bolder;

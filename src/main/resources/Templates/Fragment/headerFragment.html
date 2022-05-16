@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Fragment</title>
@@ -12,15 +12,16 @@
 <header id="header">
     <div id="mainBox">
         <div id="buttonboxfrag">
-            <button id="mainpagebutton"><a href="mainPage.html"><img src="bilLogo.png" id="logo"></a></button>
+            <button id="mainpagebutton"><a href="/"><img src="bilLogo.png" id="logo"></a></button>
         </div>
         <div id="textBox">
             <p id="headertext">Velkommen til medarbejderportalen</p>
         </div>
+        <div id="logoutbox">
+            <button id="logoutbutton"><a href="/">logout</a></button>
+        </div>
 
     </div>
-
-
 </header>
 
 </body>
