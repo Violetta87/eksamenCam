@@ -18,7 +18,7 @@ public class CreateConnectionMySQL {
         return connection;
     }
 
-    public ResultSet createQuery(String queryString, Statement statement) {
+    public static ResultSet createQuery(String queryString, Statement statement) {
         ResultSet resultSet = null;
         try {
             resultSet = statement.executeQuery(queryString);
@@ -28,7 +28,7 @@ public class CreateConnectionMySQL {
         return resultSet;
     }
 
-    public Statement createStatement() {
+    public static Statement createStatement() {
         Connection connection = createConnectionToMySQL();
 
         Statement statement = null;
@@ -39,11 +39,12 @@ public class CreateConnectionMySQL {
         }
         return statement;
     }
-
-    public void createEmployeeRole(String employeeRole) throws SQLException {
+/*
+    public static boolean createEmployeeRole(String employeeRole) throws SQLException {
         Statement statement = createStatement();
         String mySQLStatement = "INSERT INTO employee_role (employee_role) VALUES ('" + employeeRole + "')";
         statement.executeUpdate(mySQLStatement);
+        return true;
     }
-
+*/
 }

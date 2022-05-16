@@ -9,8 +9,10 @@ public class Employee {
     private String firstName;
     private String middleName;
     private String lastName;
+    private int employeeID;
+    private int employmentRoleID;
 
-    public Employee(String username, String password, String email, int phoneNumber, String firstName, String middleName, String lastName) {
+    public Employee(String username, String password, String email, int phoneNumber, String firstName, String middleName, String lastName, int employeeID, int employmentRoleID) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -18,6 +20,15 @@ public class Employee {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
+        this.employeeID = employeeID;
+        this.employmentRoleID = employmentRoleID;
+    }
+
+    public Employee(String username, String password, int employeeID, int employmentRoleID){
+        this.username = username;
+        this.password = password;
+        this.employeeID = employeeID;
+        this.employmentRoleID = employmentRoleID;
     }
 
     public String getUsername() {
@@ -74,5 +85,21 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public int getEmploymentRoleID() {
+        return employmentRoleID;
+    }
+
+    public void setEmploymentRoleID(int employmentRoleID) {
+        this.employmentRoleID = employmentRoleID;
     }
 }

@@ -15,13 +15,33 @@ import java.sql.SQLException;
 public class LoginController {
     private LoginService loginService = new LoginService();
 
-    @GetMapping("")
-    public String login(){
+    @GetMapping("/")
+    public String login() {
         return "login";
     }
 
-    @PostMapping("")
-    public String getLogin(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("employment_role") String employmentRole, HttpSession httpSession) throws SQLException {
+    @PostMapping("/")
+    public String getLogin(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession httpSession) throws SQLException {
         Employee employee = loginService.employeeLogin(username, password);
+        httpSession.setAttribute("user", employee);
+
+        if (employee.getEmploymentRoleID() == 1){
+            return "redirect:/dataregistrering";
+        }
+        else if (employee.getEmploymentRoleID() == 2){
+            return "redirect:/forretningsudvikler";
+        }
+        else if (employee.getEmploymentRoleID() == 3){
+            return "redirect:/skade";
+        }
+        else {
+            return "login";
+        }
+    }
+
+    @GetMapping("/log-out")
+    public String logOut(HttpSession httpSession) {
+        httpSession.removeAttribute("user");
+        return "redirect:/";
     }
 }

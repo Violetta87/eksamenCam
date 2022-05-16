@@ -8,7 +8,7 @@ public class IndexController {
 
     @GetMapping("/misaj")
     public String mainpage(){
-        return "mainPage";
+        return "index";
     }
 
 }
