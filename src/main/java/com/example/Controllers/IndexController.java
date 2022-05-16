@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package com.example.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping("/misaj")
-    public String mainpage(){
+    @GetMapping("/blabla")
+    public String index(){
         return "index";
     }
 

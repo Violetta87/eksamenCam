@@ -1,6 +1,6 @@
-package Repositiories;
+package com.example.Repositiories;
 
-import Models.Employee;
+import com.example.Models.Employee;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

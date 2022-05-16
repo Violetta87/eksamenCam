@@ -1,10 +1,8 @@
 package com.example.utility;
 
-import Repositiories.CreateConnectionMySQL;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 @SpringBootApplication

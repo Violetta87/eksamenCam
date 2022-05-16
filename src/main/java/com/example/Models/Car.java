@@ -1,4 +1,4 @@
-package Models;
+package com.example.Models;
 
 public class Car {
 String model;

@@ -1,6 +1,4 @@
-package Repositiories;
-
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+package com.example.Repositiories;
 
 import java.sql.*;
 

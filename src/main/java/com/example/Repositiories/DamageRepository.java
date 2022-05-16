@@ -1,4 +1,4 @@
-package Repositiories;
+package com.example.Repositiories;
 
 import java.sql.Connection;
 
