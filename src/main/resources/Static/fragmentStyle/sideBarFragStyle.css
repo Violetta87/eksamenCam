@@ -1,0 +1,17 @@
+
+#buttonbox{
+    width: 50%;
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 60%;
+}
+
+a{
+    text-decoration-line: none;
+    font-weight: bolder;
+    font-family: "Bookman Old Style";
+    color: black;
+    font-size: 200%;
+}

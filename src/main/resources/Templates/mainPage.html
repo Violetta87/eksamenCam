@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Medarbejderportal</title>
-    <link rel="stylesheet" href="fragmentStyle.css">
+    <link rel="stylesheet" href="fragmentStyle/headerFragStyle.css">
+    <link rel="stylesheet" href="fragmentStyle/.css">
     <link rel="stylesheet" href="mainPage.css">
+    <link rel="stylesheet" href="UniversalStyle.css">
 
 </head>
 
 <body>
-<header>
+
     <th:block th:replace="fragment/headerFragment :: header"></th:block>
-</header>
-<div id="restbody">
 
-    <div id="leftbox">
-        <nav id="buttonbox">
-            <button class="mainPagebuttons"><a href="/addLeasePage">Tilføj Aftale</a></button>
-            <button class="mainPagebuttons"><a href="/addCars">Tilføj Bil</a></button>
-        </nav>
-
-    </div>
+    <th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
 
     <div id="rightBox">
 
 
+
     </div>
 
-</div>
 
 
 </body>

@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+html{
+    height:100%;
+    widht:100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar restbody";
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 10% 90%;
+}
+#header{
+    grid-area: header;
+
+}
+#sidebar{
+grid-area: sidebar;
+}
+#rightBox{
+    grid-area: restbody;
+    overflow-y: auto;
+}
+
+
+
