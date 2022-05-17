@@ -8,6 +8,6 @@ public class RentedCarsController {
 
     @GetMapping("/dashboard")
     public String rentedCarList(){
-        return "dasboard";
+        return "dashboard";
     }
 }
