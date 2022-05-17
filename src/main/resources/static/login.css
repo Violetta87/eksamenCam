@@ -11,7 +11,7 @@ body{
 }
 .container{
     margin: auto;
-    width: 500px;
+    width: 600px;
     max-width: 90%;
 }
 .container form{
@@ -43,11 +43,11 @@ body{
     height: 34px;
     border: none;
     outline: none;
-    background: aqua;
+    background: slategray;
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
-    color: blue;
+    color: black;
     border-radius: 4px;
     transition: .3s;
 }

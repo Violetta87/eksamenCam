@@ -15,7 +15,7 @@ public class LoginController {
     private LoginService loginService = new LoginService();
 
     @GetMapping("/")
-    public String login() {
+    public String Index() {
         return "login";
     }
 
@@ -28,7 +28,7 @@ public class LoginController {
             return "redirect:/dataregistrering";
         }
         else if (employee.getEmploymentRoleID() == 2){
-            return "redirect:/forretningsudvikler";
+            return "redirect:/dashboard";
         }
         else if (employee.getEmploymentRoleID() == 3){
             return "redirect:/skade";
