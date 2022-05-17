@@ -14,21 +14,4 @@ public class LeaseController {
                 return "add-lease";
         }
 
-        @GetMapping("/addCars")
-        public String addCars(){ return "add-cars";}
-
-         @PostMapping("/addCars")
-         public String registrerCars(WebRequest dataFromForm){
-                String model = dataFromForm.getParameter("model");
-                String brand = dataFromForm.getParameter("brand");
-                String carEmissionCost = dataFromForm.getParameter("carEmissionCost");
-                String registrationCost = dataFromForm.getParameter("registrationCost");
-                String equipmentLevel = dataFromForm.getParameter("equipmentLevel");
-                String isRented = dataFromForm.getParameter("isRented");
-                String isDamaged = dataFromForm.getParameter("isDamaged");
-
-             Car newCar = new Car(model, brand, carEmissionCost,registrationCost, equipmentLevel, isRented,isDamaged);
-
-         }*/
-
 }
