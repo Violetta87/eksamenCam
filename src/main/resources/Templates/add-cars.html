@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>addCars</title>
-    <link rel="stylesheet" href="headerFragStyle.css">
-    <link rel="stylesheet" href="sideBarFragStyle.css">
-    <link rel="stylesheet" href="add-cars.css">
-    <link rel="stylesheet" href="UniversalStyle.css">
+    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{UniversalStyle.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}" type="text/css">
 
 
 </head>
@@ -19,7 +18,7 @@
         <div id="headerBox"></div>
         <h1>Registrere en ny bil</h1>
     </div>
-<form action="/addcars" method="post">
+<form action="/addCars" method="post">
    <label for="">Model</label><br>
     <input id="carModel" type="text" name="carModel">
     <br><br>
@@ -36,10 +35,10 @@
     <input id="equipmentLevel" type="text" name="carModel">
     <br><br>
     <label for="">isrented</label><br>
-    <input id="isRented" type="checkbox" checked="yes" checked="no">
+    <input id="isRented" type="checkbox" checked="no">
     <br><br>
     <label for=""isrented</label><br>
-    <input id="isDamaged" type="checkbox" checked="yes" checked="no">
+    <input id="isDamaged" type="checkbox" checked="no">
     <br><br>
 </form>
 
