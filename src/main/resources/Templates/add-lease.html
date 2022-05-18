@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{fragmentStyle/UniversalStyle.css}" type="text/css">
+
 </head>
 
 <body>
 
-    <th:block th:replace="fragment/headerFragment :: header"></th:block>
+    <th:block th:replace="Fragment/headerFragment :: header"></th:block>
     <th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
 
 <div id="rightBox">

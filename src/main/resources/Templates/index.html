@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http//www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Medarbejderportal</title>
-    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{UniversalStyle.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}" type="text/css">
+
+
+  <meta charset="UTF-8">
+ <title>Login</title>
+    <link  th:href="@{login.css}" rel="stylesheet" >
 
 </head>
 
+<!--- Det her er login siden --->
+
 <body>
-
-    <th:block th:replace="fragment/headerFragment :: header"></th:block>
-
-    <th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
-
-    <div id="rightBox">
-
-
-
+    <div class="container">
+        <form th:action="@{/index}" method="post">
+            <img th:src="@{pictures/Logo.png}" alt="logo" width="550" height="125">
+            <div class="form-group">
+                <label for="brugernavn">Brugernavn</label>
+                <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" required>
+            </div>
+            <input type="submit" class="btn" value="Login">
+        </form>
     </div>
-
-
-
 </body>
 </html>

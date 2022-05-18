@@ -14,12 +14,12 @@ import java.sql.SQLException;
 public class LoginController {
     private LoginService loginService = new LoginService();
 
-    @GetMapping("/login")
-    public String login() {
+    @GetMapping("/")
+    public String Index() {
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/")
     public String getLogin(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession httpSession) throws SQLException {
         Employee employee = loginService.employeeLogin(username, password);
         httpSession.setAttribute("user", employee);
@@ -28,7 +28,7 @@ public class LoginController {
             return "redirect:/dataregistrering";
         }
         else if (employee.getEmploymentRoleID() == 2){
-            return "redirect:/forretningsudvikler";
+            return "redirect:/dashboard";
         }
         else if (employee.getEmploymentRoleID() == 3){
             return "redirect:/skade";

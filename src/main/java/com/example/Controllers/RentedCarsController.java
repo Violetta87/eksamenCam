@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class PriceRentedCarsController {
+public class RentedCarsController {
 
-    @GetMapping("/rentedCarList")
+    @GetMapping("/dashboard")
     public String rentedCarList(){
-        return "rentedCarList";
+        return "dashboard";
     }
 }
