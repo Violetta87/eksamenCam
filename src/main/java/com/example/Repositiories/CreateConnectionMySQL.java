@@ -26,9 +26,7 @@ public class CreateConnectionMySQL {
         return resultSet;
     }
 
-    public static Statement createStatement() {
-        Connection connection = createConnectionToMySQL();
-
+    public static Statement createStatement(Connection connection) {
         Statement statement = null;
         try {
             statement = connection.createStatement();
