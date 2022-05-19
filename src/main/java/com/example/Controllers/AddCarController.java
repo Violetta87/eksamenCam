@@ -19,11 +19,18 @@ public class AddCarController {
 
     @PostMapping("/addCars")
     public String registrerCars(WebRequest dataFromForm) throws SQLException {
+
         String carModel = dataFromForm.getParameter("carModel");
         String brand = dataFromForm.getParameter("brand");
-        String carEmissionCost = dataFromForm.getParameter("carbonEmissionCost");
+        String carEmissionCost = dataFromForm.getParameter("carbonEmission");
         String registrationCost = dataFromForm.getParameter("registrationCost");
         String equipmentLevel = dataFromForm.getParameter("equipmentLevel");
+
+        if (carEmissionCost == null){
+            carEmissionCost="0";
+        }
+
+
 
         String isRented = dataFromForm.getParameter("isRented");
         Boolean isRentedB;
@@ -50,9 +57,11 @@ public class AddCarController {
         }
 
         System.out.println("hej" + carEmissionCost);
+        System.out.println();
 
        Car newCar = new Car(carModel, brand, Integer.parseInt(carEmissionCost),Integer.parseInt(registrationCost), equipmentLevel, isRentedB, isSoldB, isDamagedB);
        // Car newCar = new Car("toyo", "hej",3445,4335,"gfdfg",true,true);
+        System.out.println(newCar.toString());
         addCarsRepository.addCars(newCar);
         /*kalde service der validerere, som adder til database hvis valideres*/
         return "redirect:/index";
