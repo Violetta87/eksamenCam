@@ -10,7 +10,7 @@ import org.springframework.web.context.request.WebRequest;
 import java.sql.SQLException;
 
 @Controller
-public class addCarController {
+public class AddCarController {
 
     AddCarsRepository addCarsRepository =new AddCarsRepository();
 
@@ -33,6 +33,14 @@ public class addCarController {
             isRentedB = false;
         }
 
+        String isSold = dataFromForm.getParameter("isSold");
+        Boolean isSoldB;
+        if (isRented.equals("yes")) {
+            isSoldB = true;
+        } else {
+            isSoldB = false;
+        }
+
         String isDamaged = dataFromForm.getParameter("isDamaged");
         Boolean isDamagedB;
         if(isDamaged.equals("yes")) {
@@ -43,7 +51,7 @@ public class addCarController {
 
         System.out.println("hej" + carEmissionCost);
 
-       Car newCar = new Car(carModel, brand, Integer.parseInt(carEmissionCost),Integer.parseInt(registrationCost), equipmentLevel, isRentedB,isDamagedB);
+       Car newCar = new Car(carModel, brand, Integer.parseInt(carEmissionCost),Integer.parseInt(registrationCost), equipmentLevel, isRentedB, isSoldB, isDamagedB);
        // Car newCar = new Car("toyo", "hej",3445,4335,"gfdfg",true,true);
         addCarsRepository.addCars(newCar);
         /*kalde service der validerere, som adder til database hvis valideres*/

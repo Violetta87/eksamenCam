@@ -33,6 +33,10 @@ grid-area: sidebar;
 #rightBox{
     grid-area: restbody;
     overflow-y: auto;
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100vh;
+
 }
 #secondsidebar{
     gridarea: secondsidebar;
@@ -42,6 +46,7 @@ a{
     text-decoration-line: none;
     color:black;
 }
+
 
 
 

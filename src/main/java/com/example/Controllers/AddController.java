@@ -3,14 +3,14 @@ package com.example.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/*@Controller
-public class IndexController {
+@Controller
+public class AddController {
 
-    @GetMapping("/")
-    public String index(){
-        return "index";
+    @GetMapping("/add")
+    public String addPage(){
+        return "add";
     }
 
-}*/
+}
 
 
