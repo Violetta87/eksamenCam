@@ -12,11 +12,18 @@
 
     <th:block th:replace="fragment/headerFragment :: header"></th:block>
 
-<div id="rightBox">
+<div id="rightBox"></div>
 
-
-
-</div>
+<form th:action="@{/add-damages}" method="post">
+    <label for="numberVIN">Stelnummer:</label>
+    <input type="text" name="numberVIN">
+    <label for="chassisNumber">Vognnummer:</label>
+    <input type="text" name="chassisNumber">
+    <label for="defects">Skader og defekter. Skal indtastes med i formen: Skade ID1, Skade ID2, Skade ID2 etc.</label>
+    <input type="text" name="defects">
+    <label for="kilometersExceeded">Kilometer kørt over lejeaftalens grænse</label>
+    <input type="number" name="kilometersExceeded">
+</form>
 
 </body>
 </html>
