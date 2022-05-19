@@ -9,7 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class LeaseController {
 
-        @GetMapping("/addLeasePage")
+        @GetMapping("/tilfoj-bil")
         public String addLeasePage(){
                 return "add-lease";
         }

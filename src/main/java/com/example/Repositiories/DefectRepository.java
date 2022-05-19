@@ -1,13 +1,13 @@
 package com.example.Repositiories;
 
-import com.example.Models.DamageReport;
+import com.example.Models.DefectReport;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DamageRepository {
+public class DefectRepository {
     // VIGTIGT! chassis_number og VIN_number skal laves om til en string i MySQL DB.
     private Connection connection = CreateConnectionMySQL.createConnectionToMySQL();
     private Statement statement = CreateConnectionMySQL.createStatement(connection);
@@ -36,8 +36,8 @@ public class DamageRepository {
         return carID;
     }
 
-    public void insertDamageReport(DamageReport damageReport) throws SQLException {
-        String mySQLStatement = "INSERT INTO damage_report (rental_agreement_id, employee_id, kilometers_exceeded, damage_cost, date) VALUES ('" + damageReport.getRentalAgreementID() + "', '" + damageReport.getEmployeeID() + "', '" + damageReport.getKilometersExceeded() + "', " + damageReport.getDamage_cost() + "', '" + damageReport.getDate() + "')";
+    public void insertDamageReport(DefectReport defectReport) throws SQLException {
+        String mySQLStatement = "INSERT INTO damage_report (rental_agreement_id, employee_id, kilometers_exceeded, damage_cost, date) VALUES ('" + defectReport.getRentalAgreementID() + "', '" + defectReport.getEmployeeID() + "', '" + defectReport.getKilometersExceeded() + "', " + defectReport.getDamage_cost() + "', '" + defectReport.getDate() + "')";
         statement.executeUpdate(mySQLStatement);
     }
 

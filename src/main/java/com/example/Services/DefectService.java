@@ -1,15 +1,15 @@
 package com.example.Services;
 
-import com.example.Models.DamageReport;
-import com.example.Repositiories.DamageRepository;
+import com.example.Models.DefectReport;
+import com.example.Repositiories.DefectRepository;
 
 import java.util.ArrayList;
 
-public class DamageService {
-    private DamageRepository damageRepository = new DamageRepository();
+public class DefectService {
+    private DefectRepository defectRepository = new DefectRepository();
 
-    public DamageReport createDamageReportObject(int employeeID, String numberVIN, String chassisNumber, String damages, int kilometersExceeded, String date, int damageCost, int rentalAgreementID) {
-        return new DamageReport(employeeID, rentalAgreementID, kilometersExceeded, damageCost, damages, date);
+    public DefectReport createDamageReportObject(int employeeID, String numberVIN, String chassisNumber, String damages, int kilometersExceeded, String date, int damageCost, int rentalAgreementID) {
+        return new DefectReport(employeeID, rentalAgreementID, kilometersExceeded, damageCost, damages, date);
     }
 
     public ArrayList<Integer> damagesStringToIntegerArrayList(String damages) {

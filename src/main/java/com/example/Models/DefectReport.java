@@ -1,6 +1,6 @@
 package com.example.Models;
 
-public class DamageReport {
+public class DefectReport {
     private int employeeID;
     private int rentalAgreementID;
     private int kilometersExceeded;
@@ -8,7 +8,7 @@ public class DamageReport {
     private String damages;
     private String date;
 
-    public DamageReport(int employeeID, int rentalAgreementID, int kilometersExceeded, int damage_cost, String damages, String date) {
+    public DefectReport(int employeeID, int rentalAgreementID, int kilometersExceeded, int damage_cost, String damages, String date) {
         this.employeeID = employeeID;
         this.rentalAgreementID = rentalAgreementID;
         this.kilometersExceeded = kilometersExceeded;
