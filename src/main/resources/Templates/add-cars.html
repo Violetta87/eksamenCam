@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>addCars</title>
 
-    <link rel="stylesheet" th:href="@{headerFragStyle.css}">
-    <link rel="stylesheet" th:href="@{sideBarFragStyle.css}">
+    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}">
+    <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}">
     <link rel="stylesheet" th:href="@{add-cars.css}">
     <link rel="stylesheet" th:href="@{UniversalStyle.css}">
 
@@ -18,35 +18,71 @@
     <th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
 
     <div id="rightBox">
-        <div id="headerBox"></div>
-        <h1>Registrere en ny bil</h1>
-    </div>
-<form action="/addCars" method="post">
-   <label for="">Model</label><br>
-    <input id="carModel" type="text" name="carModel">
-    <br><br>
-    <label for="">Brand</label><br>
-    <input id="brand" type="text" name="brand">
-    <br><br>
-    <label for="">CarbonEmission</label><br>
-    <input id="carbonEmission" type="text" name="carbonEmission">
-    <br><br>
-    <label for="">RegistrationCost</label><br>
-    <input id="registrationCost" type="text" name="registrationCost">
-    <br><br>
-    <label for="">eqipmentLevel</label><br>
-    <input id="equipmentLevel" type="text" name="carModel">
-    <br><br>
-    <label for="">isrented</label><br>
-    <input id="isRented" type="checkbox" checked="no">
-    <br><br>
-    <label for=""isrented</label><br>
-    <input id="isDamaged" type="checkbox" checked="no">
-    <br><br>
-</form>
+        <div id="picsAddCars">
+        <img src="pictures/bileksamen.png" id="addCarsPics">
+        </div>
+        <div id="headerBox">
+            <h1>Registrere en ny bil</h1>
+        </div>
 
+            <form action="/addCars" method="post">
+                <div id="formAddCar">
+                <label for="carModel">Model</label><br>
+                <input id="carModel" type="text" name="carModel">
+                <br><br>
+                <label for="brand">Brand</label><br>
+                <input id="brand" type="text" name="brand">
+                <br><br>
+                <label for="carbonEmission">Carbon Emission</label><br>
+                <input id="carbonEmission" type="text" name="carbonEmission">
+                <br><br>
+                <label for="registrationCost">Registration Cost</label><br>
+                <input id="registrationCost" type="text" name="registrationCost">
+                <br><br>
+                <label for="equipmentLevel">Eqipment Level</label><br>
+                <input id="equipmentLevel" type="text" name="equipmentLevel">
+                <br><br>
+
+                <div id="radioOne">
+                    <span>Is rented</span>
+                    <br><br>
+                    <label for="rentedYes">Yes</label>
+                    <input id="rentedYes" type="radio" name="isRented" value="yes">
+
+                    <label for="rentedNo">No</label>
+                    <input checked id="rentedNo" type="radio" name="isRented" value="no">
+                    <br><br>
+                </div>
+
+                    <div id="radioTwo">
+                        <span>Is sold</span>
+                        <br><br>
+                        <label for="soldYes">Yes</label>
+                        <input id="soldYes" type="radio" name="isSold" value="yes">
+
+                        <label for="rentedNo">No</label>
+                        <input checked id="soldNo" type="radio" name="isSold" value="no">
+                        <br><br>
+                    </div>
+
+                <div id="radioThree">
+                    <span>Is damaged</span>
+                    <br><br>
+                    <label for="damagedYes">Yes</label>
+                    <input id="damagedYes" type="radio" name="isDamaged" value="yes">
+
+                    <label for="damagedNo">No</label>
+                    <input checked id="damagedNo" type="radio" name="isDamaged" value="no">
+                    <br><br>
+
+                </div>
+
+                <input type="submit" name="submit">
+
+        </div>
+    </form>
     </div>
 
-</div>
+
 </body>
 </html>

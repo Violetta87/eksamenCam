@@ -1,36 +1,24 @@
 package com.example.Models;
 
 public class Car {
-String carModel;
-String brand;
-int carbonEmission;
-int registrationCost;
-String equipmentLevel;
-Boolean isRented;
-Boolean isDamaged;
+private String carModel;
+private String brand;
+private int carbonEmission;
+private int registrationCost;
+private String equipmentLevel;
+private Boolean isRented;
+private Boolean isSold;
+private Boolean isDamaged;
 
-    public Car(String carModel,String brand, String carbonEmission, String registrationCost, String equipmentLevel, String isRented, String isDamaged) {
-        this.carModel = carModel;
-        this.brand = brand;
-        this.carbonEmission = Integer.parseInt(carbonEmission);
-        this.registrationCost = Integer.parseInt(registrationCost);
-        this.equipmentLevel = equipmentLevel;
-        if (isRented.equals("yes"))
-        this.isRented = true;
-        else {
-        this.isRented = false;
-        if (isDamaged.equals("no"))
-            this.isDamaged = false;
 
-        }
-    }
-    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, boolean isDamaged){
+    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged){
         this.carModel=carModel;
         this.brand=brand;
         this.carbonEmission=carbonEmission;
         this.registrationCost=registrationCost;
         this.equipmentLevel=equipmentLevel;
         this.isRented=isRented;
+        this.isSold=isSold;
         this.isDamaged=isDamaged;
     }
 
@@ -47,6 +35,10 @@ Boolean isDamaged;
 
     public void setRented(boolean rented) {isRented = rented;}
 
+    public void setSold(Boolean sold) {
+        isSold = sold;
+    }
+
     public void setDamaged(boolean damaged) {isDamaged = damaged;}
 
     public String getmodelName() {return carModel;}
@@ -61,17 +53,22 @@ Boolean isDamaged;
 
     public boolean isRented() {return isRented;}
 
+    public Boolean isSold() {
+        return isSold;
+    }
+
     public boolean isDamaged() {return isDamaged;}
 
     @Override
     public String toString() {
         return "Car{" +
-                "model='" + carModel + '\'' +
+                "carModel='" + carModel + '\'' +
                 ", brand='" + brand + '\'' +
                 ", carbonEmission=" + carbonEmission +
                 ", registrationCost=" + registrationCost +
                 ", equipmentLevel='" + equipmentLevel + '\'' +
                 ", isRented=" + isRented +
+                ", isSold=" + isSold +
                 ", isDamaged=" + isDamaged +
                 '}';
     }

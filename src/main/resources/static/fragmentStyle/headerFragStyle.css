@@ -4,34 +4,50 @@
     flex-direction: row;
     height: 10vh;
     font-weight: bolder;
-    font-family: "Bookman Old Style";
 
 }
-#buttonboxfrag{
-    width: 15%;
-    background-color: beige;
 
-}
 #textBox{
     width: 70%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: beige;
+
 
 
 }
 #logoutbox{
     width: 15%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0.5%;
+
+
 }
 #headertext {
     font-size: 300%;
+    color: black;
 }
 
 
 #logo{
     width: 100%;
-    height:8vh;
+    height:100%;
+
+
+}
+#mainpagebutton{
+    border:none;
+    width:100%;
+    height:100%;
+}
+#logoutbutton{
+
+    width:20vw;
+    border-radius: 100%;
+    display: inline-block;
+    padding:5%;
+    text-align: center;
 }
 
 

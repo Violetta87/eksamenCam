@@ -4,12 +4,20 @@ import java.sql.*;
 
 public class CreateConnectionMySQL {
 
+
+
     public static Connection createConnectionToMySQL() {
+        String URL=System.getenv("DB_URL");
+        String user=System.getenv("DB_USER");
+        String password=System.getenv("DB_PASSWORD");
+
+
         // tables er oprettet i DB
         Connection connection = null;
 
+
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bilabonnementDB", "root", "fullstackpassword123#");
+            connection = DriverManager.getConnection(URL, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
         }
