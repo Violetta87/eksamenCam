@@ -9,9 +9,11 @@ private String equipmentLevel;
 private Boolean isRented;
 private Boolean isSold;
 private Boolean isDamaged;
+private int chassisNumber;
+private int vinNumber;
 
 
-    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged){
+    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged, int chassisNumber, int vinNumber){
         this.carModel=carModel;
         this.brand=brand;
         this.carbonEmission=carbonEmission;
@@ -20,6 +22,8 @@ private Boolean isDamaged;
         this.isRented=isRented;
         this.isSold=isSold;
         this.isDamaged=isDamaged;
+        this.chassisNumber=chassisNumber;
+        this.vinNumber=vinNumber;
     }
 
 
@@ -41,6 +45,10 @@ private Boolean isDamaged;
 
     public void setDamaged(boolean damaged) {isDamaged = damaged;}
 
+    public void setChassisNumber(int chassisNumber) {this.chassisNumber = chassisNumber;}
+
+    public void setVinNumber(int vinNumber) {this.vinNumber = vinNumber;}
+
     public String getmodelName() {return carModel;}
 
     public String getBrand() {return brand;}
@@ -59,6 +67,10 @@ private Boolean isDamaged;
 
     public boolean isDamaged() {return isDamaged;}
 
+    public int getChassisNumber() {return chassisNumber;}
+    public int getVinNumber() {return vinNumber;}
+
+
     @Override
     public String toString() {
         return "Car{" +
@@ -70,6 +82,8 @@ private Boolean isDamaged;
                 ", isRented=" + isRented +
                 ", isSold=" + isSold +
                 ", isDamaged=" + isDamaged +
+                ", chassisNumber=" + chassisNumber +
+                ", vinNumber=" + vinNumber +
                 '}';
     }
 }

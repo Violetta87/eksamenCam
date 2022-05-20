@@ -18,8 +18,8 @@ public class AddCarsRepository {
 
         try{
             Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO car(model,brand,carbonEmission,registrationCost,equipmemtLevel,isRented, isSold,isDamaged) " +
-                "VALUES (?,?,?,?,?,?,?,?) ");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO fleet(model,brand,carbon_emission,registration_cost,equipment_level,is_rented, is_sold,is_damaged, chassis_number, VIN_number) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,?) ");
 
             stmt.setString(1,entity.getmodelName());
             stmt.setString(2,entity.getBrand());
@@ -29,12 +29,15 @@ public class AddCarsRepository {
             stmt.setBoolean(6,entity.isRented());
             stmt.setBoolean(7,entity.isSold());
             stmt.setBoolean(8,entity.isDamaged());
+            stmt.setInt(9,entity.getChassisNumber());
+            stmt.setInt(10,entity.getVinNumber());
 
             stmt.executeUpdate();
             System.out.println("Car has been created");
 
                 return true;
     }catch(SQLException e){
+            e.printStackTrace();
             System.out.println("something went wrong");
             return false;
 

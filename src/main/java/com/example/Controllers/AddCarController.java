@@ -4,6 +4,7 @@ import com.example.Models.Car;
 import com.example.Repositiories.AddCarsRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
@@ -18,19 +19,29 @@ public class AddCarController {
     public String addCars(){ return "add-cars";}
 
     @PostMapping("/addCars")
+    public String addcar(@ModelAttribute Car car){
+        try {
+            addCarsRepository.addCars(car);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/add";
+    }
+
+    /*@PostMapping("/addCars")
     public String registrerCars(WebRequest dataFromForm) throws SQLException {
 
         String carModel = dataFromForm.getParameter("carModel");
         String brand = dataFromForm.getParameter("brand");
         String carEmissionCost = dataFromForm.getParameter("carbonEmission");
-        String registrationCost = dataFromForm.getParameter("registrationCost");
-        String equipmentLevel = dataFromForm.getParameter("equipmentLevel");
-
         if (carEmissionCost == null){
             carEmissionCost="0";
         }
-
-
+        String registrationCost = dataFromForm.getParameter("registrationCost");
+        if(registrationCost ==null){
+            registrationCost="0";
+        }
+        String equipmentLevel = dataFromForm.getParameter("equipmentLevel");
 
         String isRented = dataFromForm.getParameter("isRented");
         Boolean isRentedB;
@@ -56,15 +67,20 @@ public class AddCarController {
             isDamagedB =false;
         }
 
-        System.out.println("hej" + carEmissionCost);
-        System.out.println();
+        String chassisNumber = dataFromForm.getParameter("chassisNumber");
+        if(chassisNumber==null){
+            chassisNumber="0";
+        }
+        String vinNumber = dataFromForm.getParameter("vinNumber");
+        if(vinNumber==null){
+            vinNumber="0";
+        }
+       Car newCar = new Car(carModel, brand, Integer.parseInt(carEmissionCost),Integer.parseInt(registrationCost), equipmentLevel, isRentedB, isSoldB, isDamagedB, Integer.parseInt(chassisNumber), Integer.parseInt(vinNumber));
 
-       Car newCar = new Car(carModel, brand, Integer.parseInt(carEmissionCost),Integer.parseInt(registrationCost), equipmentLevel, isRentedB, isSoldB, isDamagedB);
-       // Car newCar = new Car("toyo", "hej",3445,4335,"gfdfg",true,true);
-        System.out.println(newCar.toString());
+        //System.out.println(newCar.toString());
         addCarsRepository.addCars(newCar);
-        /*kalde service der validerere, som adder til database hvis valideres*/
-        return "redirect:/index";
+        /*kalde service der validerere, som adder til database hvis valideres
+        return "redirect:/add";
     }
-
+*/
 }
