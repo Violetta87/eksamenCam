@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class DefectController {
+public class DamageController {
     @GetMapping("/add-damages")
     public String damagePage(){
         return "add-defects";
