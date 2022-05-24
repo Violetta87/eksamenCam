@@ -25,13 +25,13 @@ public class LoginController {
         httpSession.setAttribute("user", employee);
 
         if (employee.getEmploymentRoleID() == 1){
-            return "redirect:/dataregistrering";
+            return "redirect:/add";
         }
         else if (employee.getEmploymentRoleID() == 2){
             return "redirect:/dashboard";
         }
         else if (employee.getEmploymentRoleID() == 3){
-            return "redirect:/skade";
+            return "redirect:/add-defects";
         }
         else {
             return "login";
