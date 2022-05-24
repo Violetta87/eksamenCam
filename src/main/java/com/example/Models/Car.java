@@ -49,7 +49,7 @@ private int vinNumber;
 
     public void setVinNumber(int vinNumber) {this.vinNumber = vinNumber;}
 
-    public String getmodelName() {return carModel;}
+    public String getCarModel() {return carModel;}
 
     public String getBrand() {return brand;}
 
@@ -86,5 +86,6 @@ private int vinNumber;
                 ", vinNumber=" + vinNumber +
                 '}';
     }
+
 }
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NotRentedCars</title>
+    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}">
+    <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}">
+    <link rel="stylesheet" th:href="@{notRentedCars.css}">
+    <link rel="stylesheet" th:href="@{UniversalStyle.css}">
+
+</head>
+<body>
+<th:block th:replace="fragment/headerFragment :: header"></th:block>
+
+<th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
+
+<section class="content">
+    <h1>Carlist</h1>
+    <table th:each="car : ${carList}">
+        <tr th:text="${car.getCarModel()}"></tr>
+        <tr th:text="${car.getBrand()}"></tr>
+        <tr th:text="${car.getCarbonEmission()}"></tr>
+        <tr th:text="${car.getEquipmentLevel()}"></tr>
+        <tr th:text="${car.isrented()}"></tr>
+        <tr th:text="${car.isSold()}"></tr>
+        <tr th:text="${car.isDamaged()}"></tr>
+        <tr th:text="${car.getChassisNumber()}"></tr>
+        <tr th:text="${car.getVinNumber()}"></tr>
+
+
+
+
+
+    </table>
+
+</section>
+</body>
+</html>
