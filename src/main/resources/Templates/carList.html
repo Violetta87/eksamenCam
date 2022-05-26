@@ -5,34 +5,52 @@
     <title>NotRentedCars</title>
     <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}">
     <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}">
-    <link rel="stylesheet" th:href="@{notRentedCars.css}">
+    <link rel="stylesheet" th:href="@{car-list.css}">
     <link rel="stylesheet" th:href="@{UniversalStyle.css}">
 
 </head>
 <body>
-<th:block th:replace="fragment/headerFragment :: header"></th:block>
+<th:block th:replace="fragment/header-fragment :: header"></th:block>
 
-<th:block th:replace="fragment/sideBarFrag :: #sidebar"></th:block>
+<th:block th:replace="fragment/sidebar-fragment :: sidebar"></th:block>
 
-<section class="content">
-    <h1>Carlist</h1>
-    <table th:each="car : ${carList}">
-        <tr th:text="${car.getCarModel()}"></tr>
-        <tr th:text="${car.getBrand()}"></tr>
-        <tr th:text="${car.getCarbonEmission()}"></tr>
-        <tr th:text="${car.getEquipmentLevel()}"></tr>
-        <tr th:text="${car.isrented()}"></tr>
-        <tr th:text="${car.isSold()}"></tr>
-        <tr th:text="${car.isDamaged()}"></tr>
-        <tr th:text="${car.getChassisNumber()}"></tr>
-        <tr th:text="${car.getVinNumber()}"></tr>
+<div id="rightBox">
+    <section class="content">
+        <h1>Carlist</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Model</th>
+                <th>Mærke</th>
+                <th>CO2 udledning</th>
+                <th>Udstyrsniveau</th>
+                <th>Er udlejet</th>
+                <th>Er solgt</th>
+                <th>Fejl og mangler</th>
+                <th>Stelnummer</th>
+                <th>Vogn nummer</th>
+            </tr>
+            </thead>
+            <tr th:each="car : ${carList}">
+                <td th:text="${car.getCarModel()}"></td>
+                <td th:text="${car.getBrand()}"></td>
+                <td th:text="${car.getCarbonEmission()}"></td>
+                <td th:text="${car.getEquipmentLevel()}"></td>
+                <td th:text="${car.isRented()}"></td>
+                <td th:text="${car.isSold()}"></td>
+                <td th:text="${car.isDamaged()}"></td>
+                <td th:text="${car.getChassisNumber()}"></td>
+                <td th:text="${car.getVinNumber()}"></td>
 
 
+            </tr>
+
+        </table>
+
+    </section>
 
 
+</div>
 
-    </table>
-
-</section>
 </body>
 </html>

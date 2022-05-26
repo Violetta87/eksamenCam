@@ -9,46 +9,12 @@ import java.util.List;
 
 public class AddCarsRepository implements CRUDInterface <Car> {
 
-
-
-
-
-    /*public boolean addCars(Car entity) throws SQLException {
-
-
-        try {
-            Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO fleet(model,brand,carbon_emission,registration_cost,equipment_level,is_rented, is_sold,is_damaged, chassis_number, VIN_number) " +
-                    "VALUES (?,?,?,?,?,?,?,?,?,?) ");
-
-            stmt.setString(1, entity.getmodelName());
-            stmt.setString(2, entity.getBrand());
-            stmt.setInt(3, entity.getCarbonEmission());
-            stmt.setInt(4, entity.getRegistrationCost());
-            stmt.setString(5, entity.getEquipmentLevel());
-            stmt.setBoolean(6, entity.isRented());
-            stmt.setBoolean(7, entity.isSold());
-            stmt.setBoolean(8, entity.isDamaged());
-            stmt.setInt(9, entity.getChassisNumber());
-            stmt.setInt(10, entity.getVinNumber());
-
-            stmt.executeUpdate();
-            System.out.println("Car has been created");
-
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("something went wrong");
-            return false;
-
-        }
-    }*/
+    Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
 
     @Override
     public boolean create(Car entity) throws SQLException {
 
         try {
-            Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO fleet(model,brand,carbon_emission,registration_cost,equipment_level,is_rented, is_sold,is_damaged, chassis_number, VIN_number) " +
                     "VALUES (?,?,?,?,?,?,?,?,?,?) ");
 
@@ -60,7 +26,7 @@ public class AddCarsRepository implements CRUDInterface <Car> {
             stmt.setBoolean(6, entity.isRented());
             stmt.setBoolean(7, entity.isSold());
             stmt.setBoolean(8, entity.isDamaged());
-            stmt.setInt(9, entity.getChassisNumber());
+            stmt.setString(9, entity.getChassisNumber());
             stmt.setInt(10, entity.getVinNumber());
 
             stmt.executeUpdate();
@@ -84,9 +50,8 @@ public class AddCarsRepository implements CRUDInterface <Car> {
     @Override
     public ArrayList<Car> getAllEntities() {
         ArrayList<Car> carList = new ArrayList<>();
-        Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
         try {
-            PreparedStatement stmt = conn.prepareStatement("SELECT FROM fleet");
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM fleet");
             ResultSet rs = stmt.executeQuery();
 
 
@@ -99,7 +64,7 @@ public class AddCarsRepository implements CRUDInterface <Car> {
                     boolean isRented = rs.getBoolean("is_rented");
                     boolean is_sold = rs.getBoolean("is_sold");
                     boolean isDamaged = rs.getBoolean("is_damaged");
-                    int chassisNumber = rs.getInt("chassis_number");
+                    String chassisNumber = rs.getString("chassis_number");
                     int vinNumber = rs.getInt("VIN_number");
 
 

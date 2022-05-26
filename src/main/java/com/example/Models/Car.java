@@ -1,6 +1,6 @@
 package com.example.Models;
 
-public class Car {
+public class Car implements Comparable<Car> {
 private String carModel;
 private String brand;
 private int carbonEmission;
@@ -9,11 +9,11 @@ private String equipmentLevel;
 private Boolean isRented;
 private Boolean isSold;
 private Boolean isDamaged;
-private int chassisNumber;
+private String chassisNumber;
 private int vinNumber;
 
 
-    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged, int chassisNumber, int vinNumber){
+    public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged, String chassisNumber, int vinNumber){
         this.carModel=carModel;
         this.brand=brand;
         this.carbonEmission=carbonEmission;
@@ -45,7 +45,7 @@ private int vinNumber;
 
     public void setDamaged(boolean damaged) {isDamaged = damaged;}
 
-    public void setChassisNumber(int chassisNumber) {this.chassisNumber = chassisNumber;}
+    public void setChassisNumber(String chassisNumber) {this.chassisNumber = chassisNumber;}
 
     public void setVinNumber(int vinNumber) {this.vinNumber = vinNumber;}
 
@@ -67,7 +67,7 @@ private int vinNumber;
 
     public boolean isDamaged() {return isDamaged;}
 
-    public int getChassisNumber() {return chassisNumber;}
+    public String getChassisNumber() {return chassisNumber;}
     public int getVinNumber() {return vinNumber;}
 
 
@@ -87,5 +87,13 @@ private int vinNumber;
                 '}';
     }
 
+    @Override
+    public int compareTo(Car second) {
+        if(this.getVinNumber() > second.getVinNumber())
+        return 1;
+    else if(this.getVinNumber() < second.getVinNumber())
+        return -1;
+    else return 0;
+    }
 }
 
