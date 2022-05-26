@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>rentedCarList</title>
 
-    <link rel="stylesheet" th:href="@{fragmentStyle.css}">
     <link rel="stylesheet" th:href="@{rentedCarList.Style.css}">
+    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}">
+    <link rel="stylesheet" th:href="@{UniversalStyle.css}">
+
 
 
 </head>
@@ -13,7 +15,9 @@
 
 <body>
 
-    <th:block th:replace="fragment/headerFragment :: header"></th:block>
+    <th:block th:replace="fragment/header-fragment :: header"></th:block>
+
+
     <div id="rightBox">
 
 

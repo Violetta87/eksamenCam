@@ -44,7 +44,7 @@
 #logoutbutton{
 
     width:20vw;
-    border-radius: 100%;
+    border-radius: 32px;
     display: inline-block;
     padding:5%;
     text-align: center;
