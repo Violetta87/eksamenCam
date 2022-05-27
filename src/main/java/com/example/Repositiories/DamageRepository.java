@@ -1,6 +1,7 @@
 package com.example.Repositiories;
 
 import com.example.Models.DamageReport;
+import com.example.utility.CreateConnectionMySQL;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

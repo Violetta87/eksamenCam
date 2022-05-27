@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>addLease</title>
+    <title>Tilføj bil</title>
 
     <link rel="stylesheet" th:href="@{fragmentStyle/sideBarFragStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}" type="text/css">
     <link rel="stylesheet" th:href="@{UniversalStyle.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{add-lease.css}">
+
+    <!--- Side til dataregistrering --->
 
 </head>
 
@@ -16,7 +19,9 @@
     <th:block th:replace="fragment/sidebar-fragment :: #sidebar"></th:block>
 
 <div id="rightBox">
-
+    <div class="flex-container">
+        <h3>Kunde info: </h3>
+    </div>
 
 </div>
 </body>

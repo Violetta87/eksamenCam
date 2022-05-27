@@ -8,10 +8,10 @@ private int registrationCost;
 private String equipmentLevel;
 private Boolean isRented;
 private Boolean isSold;
-private Boolean isDamaged;
+private Boolean isDamaged; // hasDefects
 private String chassisNumber;
 private int vinNumber;
-
+//nummerplade skal herover - private String licensePlate;
 
     public Car(String carModel, String brand, int carbonEmission, int registrationCost, String equipmentLevel, boolean isRented, Boolean isSold,boolean isDamaged, String chassisNumber, int vinNumber){
         this.carModel=carModel;
