@@ -1,6 +1,8 @@
 package com.example.Controllers;
 
 import com.example.Models.Car;
+import com.example.Models.Customer;
+import com.example.Models.Lease;
 import com.example.Services.LeaseService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +22,8 @@ public class LeaseController {
         }
 
         @PostMapping("/tilfoj-bil")
-        public String addLeaseToDB(int customerID, int carID, int employeeID, int subscriptionID, int dropoffID, int price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate, boolean isActive) throws SQLException {
-                leaseService.createLease(customerID, carID, employeeID, subscriptionID, dropoffID, price, dateOfAgreement, rentalStartdate, rentalEnddate, licensePlate, isActive);
+        public String addLeaseToDB(Customer customer, int carID, int employeeID, int leaseID, int dropoffID, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, boolean isActive) throws SQLException {
+                leaseService.createLease(customer, carID, employeeID, leaseID, dropoffID, price, dateOfAgreement, rentalStartdate, rentalEnddate, isActive);
                 return "hejSLETMIG"; //HALLO JEG SKAL ALTSÅ IKKE VÆRE HER
         }
 }

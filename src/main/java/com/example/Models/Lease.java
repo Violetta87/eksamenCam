@@ -3,38 +3,36 @@ package com.example.Models;
 import java.sql.Date;
 
 public class Lease {
-    private int customerID;
+    private Customer customer;
     private int carID;
     private int employeeID;
-    private int subscriptionID;
+    private int leaseID;
     private int dropoffID;
-    private int price;
+    private double price;
     private Date dateOfAgreement;
     private Date rentalStartdate;
     private Date rentalEnddate;
-    private String licensePlate;
     private boolean isActive;
 
-    public Lease(int customerID, int carID, int employeeID, int subscriptionID, int dropoffID, int price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate, boolean isActive) {
-        this.customerID = customerID;
+    public Lease(Customer customer, int carID, int employeeID, int leaseID, int dropoffID, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, boolean isActive) {
+        this.customer = customer;
         this.carID = carID;
         this.employeeID = employeeID;
-        this.subscriptionID = subscriptionID;
+        this.leaseID = leaseID;
         this.dropoffID = dropoffID;
         this.price = price;
         this.dateOfAgreement = dateOfAgreement;
         this.rentalStartdate = rentalStartdate;
         this.rentalEnddate = rentalEnddate;
-        this.licensePlate = licensePlate;
         this.isActive = isActive;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public Customer getCustomerID() {
+        return customer;
     }
 
     public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+        this.customer = customer;
     }
 
     public int getCarID() {
@@ -54,11 +52,11 @@ public class Lease {
     }
 
     public int getSubscriptionID() {
-        return subscriptionID;
+        return leaseID;
     }
 
     public void setSubscriptionID(int subscriptionID) {
-        this.subscriptionID = subscriptionID;
+        this.leaseID = subscriptionID;
     }
 
     public int getDropoffID() {
@@ -69,11 +67,11 @@ public class Lease {
         this.dropoffID = dropoffID;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -99,14 +97,6 @@ public class Lease {
 
     public void setRentalEnddate(Date rentalEnddate) {
         this.rentalEnddate = rentalEnddate;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
     }
 
     public boolean isActive() {

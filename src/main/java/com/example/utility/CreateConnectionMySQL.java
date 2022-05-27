@@ -1,4 +1,4 @@
-package com.example.Repositiories;
+package com.example.utility;
 
 import java.sql.*;
 
