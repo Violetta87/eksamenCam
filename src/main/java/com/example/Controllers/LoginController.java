@@ -16,7 +16,7 @@ public class LoginController {
 
     @GetMapping("/")
     public String Index() {
-        return "login";
+        return "index";
     }
 
     @PostMapping("/")
