@@ -2,45 +2,45 @@ package com.example.Models;
 
 import java.sql.Date;
 
-public class Lease {
-    private Customer customer;
-    private int carID;
+public class RentalAgreement {
+    private int customerID;
+    private int vinNumber;
     private int employeeID;
-    private int leaseID;
-    private int dropoffID;
+    private int rentalAgreementID;
     private double price;
     private Date dateOfAgreement;
     private Date rentalStartdate;
     private Date rentalEnddate;
     private boolean isActive;
+    private String dropoff;
+    private String licensePlate;
 
-    public Lease(Customer customer, int carID, int employeeID, int leaseID, int dropoffID, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, boolean isActive) {
-        this.customer = customer;
-        this.carID = carID;
+
+    public RentalAgreement(int customerID, int vinNumber, int employeeID, String dropoff, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate) {
+        this.vinNumber = vinNumber;
         this.employeeID = employeeID;
-        this.leaseID = leaseID;
-        this.dropoffID = dropoffID;
+        this.dropoff = dropoff;
         this.price = price;
         this.dateOfAgreement = dateOfAgreement;
         this.rentalStartdate = rentalStartdate;
         this.rentalEnddate = rentalEnddate;
-        this.isActive = isActive;
+        this.customerID = customerID;
     }
 
-    public Customer getCustomerID() {
-        return customer;
+    public int getCustomerID() {
+        return customerID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customer = customer;
+    public void setCustomer(int customerID) {
+        this.customerID = customerID;
     }
 
-    public int getCarID() {
-        return carID;
+    public int getVinNumber() {
+        return vinNumber;
     }
 
-    public void setCarID(int carID) {
-        this.carID = carID;
+    public void setVinNumber(int vinNumber) {
+        this.vinNumber = vinNumber;
     }
 
     public int getEmployeeID() {
@@ -51,20 +51,20 @@ public class Lease {
         this.employeeID = employeeID;
     }
 
-    public int getSubscriptionID() {
-        return leaseID;
+    public int getRentalAgreementID() {
+        return rentalAgreementID;
     }
 
-    public void setSubscriptionID(int subscriptionID) {
-        this.leaseID = subscriptionID;
+    public void setRentalAgreementID(int rentalAgreementID) {
+        this.rentalAgreementID = rentalAgreementID;
     }
 
-    public int getDropoffID() {
-        return dropoffID;
+    public String getDropoff() {
+        return dropoff;
     }
 
     public void setDropoffID(int dropoffID) {
-        this.dropoffID = dropoffID;
+        this.dropoff = dropoff;
     }
 
     public double getPrice() {
@@ -99,11 +99,4 @@ public class Lease {
         this.rentalEnddate = rentalEnddate;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
 }

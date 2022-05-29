@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/*
 public class AddCarService {
-
     private AddCarsRepository addCarsRepository = new AddCarsRepository();
     private ValidateCarService validateCarService = new ValidateCarService();
 
@@ -30,7 +30,7 @@ public class AddCarService {
 
     public ArrayList<Car> showCarList(){
         ArrayList<Car> carList = addCarsRepository.getAllEntities();
-        Collections.sort(carList);
+        //Collections.sort(carList);
         return carList;
     }
 
@@ -40,13 +40,13 @@ public class AddCarService {
         ArrayList<Car> availableCarList = new ArrayList<>();
 
         for(int i=0;i < carList.size(); i++){
-            if(carList.get(i).isRented()==false){
+            if(carList.get(i).getRented()==false){
                 availableCarList.add(carList.get(i));
             }
         }
-        Collections.sort(availableCarList);
+        //Collections.sort(availableCarList);
 
      return availableCarList;
     }
 }
-
+*/

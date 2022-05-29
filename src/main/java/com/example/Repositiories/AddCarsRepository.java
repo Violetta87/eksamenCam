@@ -9,7 +9,9 @@ import java.util.ArrayList;
 
 public class AddCarsRepository implements CRUDInterface <Car> {
 
-    Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
+     Connection conn = CreateConnectionMySQL.createConnectionToMySQL();
+
+
 
     @Override
     public boolean create(Car entity) throws SQLException {
@@ -21,13 +23,13 @@ public class AddCarsRepository implements CRUDInterface <Car> {
             stmt.setString(1, entity.getCarModel());
             stmt.setString(2, entity.getBrand());
             stmt.setInt(3, entity.getCarbonEmission());
-            stmt.setInt(4, entity.getRegistrationCost());
+            stmt.setDouble(4, entity.getRegistrationCost());
             stmt.setString(5, entity.getEquipmentLevel());
-            stmt.setBoolean(6, entity.isRented());
-            stmt.setBoolean(7, entity.isSold());
-            stmt.setBoolean(8, entity.isDamaged());
+            stmt.setBoolean(6, entity.getRented());
+            stmt.setBoolean(7, entity.getSold());
+            stmt.setBoolean(8, entity.getDamaged());
             stmt.setString(9, entity.getChassisNumber());
-            stmt.setInt(10, entity.getVinNumber());
+            stmt.setString(10, entity.getVinNumber());
 
             stmt.executeUpdate();
             System.out.println("Car has been created");
@@ -47,7 +49,7 @@ public class AddCarsRepository implements CRUDInterface <Car> {
         return null;
     }
 
-    @Override
+    //@Override
     public ArrayList<Car> getAllEntities() {
         ArrayList<Car> carList = new ArrayList<>();
         try {
@@ -65,7 +67,7 @@ public class AddCarsRepository implements CRUDInterface <Car> {
                     boolean is_sold = rs.getBoolean("is_sold");
                     boolean isDamaged = rs.getBoolean("is_damaged");
                     String chassisNumber = rs.getString("chassis_number");
-                    int vinNumber = rs.getInt("VIN_number");
+                    String vinNumber = rs.getString("VIN_number");
 
 
                     Car newCar = new Car(carModel,brand,carbonEmission,registrationCost,equipmentLevel,isRented,is_sold,isDamaged,chassisNumber,vinNumber);

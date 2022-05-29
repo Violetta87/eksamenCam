@@ -1,19 +1,21 @@
 package com.example.Models;
 
+import java.sql.Date;
+
 public class DamageReport {
     private int employeeID;
     private int rentalAgreementID;
     private int kilometersExceeded;
-    private int damage_cost;
-    private String damages;
-    private String date;
+    private Double damageCost;
+    private String damageReport;
+    private Date date;
 
-    public DamageReport(int employeeID, int rentalAgreementID, int kilometersExceeded, int damage_cost, String damages, String date) {
+    public DamageReport(int employeeID, int rentalAgreementID, int kilometersExceeded, double damageCost, String damageReport, Date date) {
         this.employeeID = employeeID;
         this.rentalAgreementID = rentalAgreementID;
         this.kilometersExceeded = kilometersExceeded;
-        this.damage_cost = damage_cost;
-        this.damages = damages;
+        this.damageCost = damageCost;
+        this.damageReport = damageReport;
         this.date = date;
     }
 
@@ -41,39 +43,28 @@ public class DamageReport {
         this.kilometersExceeded = kilometersExceeded;
     }
 
-    public int getDamage_cost() {
-        return damage_cost;
+    public Double getDamageCost() {
+        return damageCost;
     }
 
-    public void setDamage_cost(int damage_cost) {
-        this.damage_cost = damage_cost;
+    public void setDamage_cost(Double damageCost) {
+        this.damageCost = damageCost;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getDamages() {
-        return damages;
+    public String getDamageReport() {
+        return damageReport;
     }
 
-    public void setDamages(String damages) {
-        this.damages = damages;
+    public void setDamages(String damageReport) {
+        this.damageReport = damageReport;
     }
 
-    @Override
-    public String toString() {
-        return "DamageReport{" +
-                "employeeID=" + employeeID +
-                ", rentalAgreementID=" + rentalAgreementID +
-                ", kilometersExceeded=" + kilometersExceeded +
-                ", damage_cost=" + damage_cost +
-                ", damages='" + damages + '\'' +
-                ", date='" + date + '\'' +
-                '}';
-    }
 }

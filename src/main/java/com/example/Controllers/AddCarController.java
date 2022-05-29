@@ -1,8 +1,10 @@
+
+/*
 package com.example.Controllers;
 
 import com.example.Models.Car;
-import com.example.Repositiories.AddCarsRepository;
-import com.example.Services.AddCarService;
+// import com.example.Repositiories.AddCarsRepository;
+// import com.example.Services.AddCarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 
 @Controller
 public class AddCarController {
@@ -45,3 +48,5 @@ public class AddCarController {
 
 
 }
+ */
+
