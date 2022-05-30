@@ -15,7 +15,7 @@ public class DamageService {
     }
 
     public void insertDamageReportDB(DamageReport damageReport) throws SQLException {
-        damageRepository.insertDamageReport(damageReport);
+        damageRepository.create(damageReport);
     }
 
 }

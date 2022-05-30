@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{fragmentStyle/headerFragStyle.css}">
+    <link rel="stylesheet" th:href="@{universalStyle.css}">
+
+    <title>Statistisk over lejeaftaler</title>
+</head>
+
+<body>
+
+<th:block th:replace="fragment/header-fragment :: header"></th:block>
+
+<div id="rightBox" style="height: fit-content">
+
+    <h1>Overblik over igangværende lejeaftaler:</h1>
+    <h2>Samlet indkomst fra lejeaftaler</h2>
+    <h2 th:text="${currentEarningsFromRentals}"></h2>
+
+    <table>
+        <tr>
+            <th>Stelnummer</th>
+            <th>Pris</th>
+            <th>Start dato</th>
+            <th>Slut dato</th>
+            <th>Nummerplade</th>
+        </tr>
+
+        <tr  th:each="carCurrentlyRentedOut : ${carsCurrentlyRentedOut}">
+            <td th:text="${carCurrentlyRentedOut.getVinNumber()}"></td>
+            <td th:text="${carCurrentlyRentedOut.getPrice()}"></td>
+            <td th:text="${carCurrentlyRentedOut.getRentalStartdate}"></td>
+            <td th:text="${carCurrentlyRentedOut.getRentalEnddate}"></td>
+            <td th:text="${carCurrentlyRentedOut.getLicensePlate}"></td>
+            <hr>
+        </tr>
+
+    </table>
+
+
+
+
+</div>
+
+
+
+</body>
+</html>

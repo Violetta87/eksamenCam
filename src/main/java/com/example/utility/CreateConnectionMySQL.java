@@ -4,8 +4,6 @@ import java.sql.*;
 
 public class CreateConnectionMySQL {
 
-
-
     public static Connection createConnectionToMySQL() {
         String URL=System.getenv("DB_URL");
         String user=System.getenv("DB_USER");

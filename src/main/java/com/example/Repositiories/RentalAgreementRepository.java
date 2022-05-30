@@ -8,86 +8,98 @@ import com.example.utility.CreateConnectionMySQL;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class RentalAgreementRepository {
+public class RentalAgreementRepository implements CRUDInterface <RentalAgreement> {
     private Connection connection = CreateConnectionMySQL.createConnectionToMySQL();
     private Statement statement = CreateConnectionMySQL.createStatement(connection);
-    private String succesMessage = "Query to rental_agreement table succes";
-    private String errorMessage = "Query to rental_agreement table failed";
 
-    public void addRentalAgreementToDB(Customer customer, int carID, int employeeID, int leaseID, int dropoffID, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, boolean isActive) {
-        String mySQLStatement = "INSERT INTO rental_agreement (customer_id, car_id, employee_id, subscription_id, dropoff_id, price, date_of_agreement, rental_startdate, rental_enddate, is_active) VALUES (´" + customer + "´, ´" + carID + "´, ´" + employeeID + "´, ´" + leaseID + "´, ´" + dropoffID + "´, ´" + price + "´, ´" + dateOfAgreement + "´, ´" + rentalStartdate + "´, ´" + rentalEnddate + "´, ´" + isActive +"´)";
-        try {
-            statement.executeUpdate(mySQLStatement);
-            System.out.println(succesMessage);
-        } catch (SQLException e) {
-            System.out.println(errorMessage);
-            e.printStackTrace();
-        }
-    }
 
-    public ArrayList<RentalAgreement> selectAllRentalAgreements() {
-        String mySQLStatement = "SELECT * from rental_agreement";
-        ArrayList<RentalAgreement> rentalAgreements = new ArrayList<>();
-
-        try {
-            ResultSet resultSet = statement.executeQuery(mySQLStatement);
-            System.out.println(succesMessage);
-
-            while (resultSet.next()) {
-                RentalAgreement rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
-                        resultSet.getInt("VIN_number"),
-                        resultSet.getInt("employee_id"),
-                        resultSet.getString("drop_off"),
-                        resultSet.getDouble("price"),
-                        resultSet.getDate("date_of_agreement"),
-                        resultSet.getDate("rental_startdate"),
-                        resultSet.getDate("rental_enddtae"),
-                        resultSet.getString("license_plate"));
-                rentalAgreements.add(rentalAgreement);
-            }
-
-        } catch (SQLException e) {
-            System.out.println(errorMessage);
-            e.printStackTrace();
-        }
-       return rentalAgreements;
-    }
-
-    public RentalAgreement selectRentalAgreementByCar(String vinNumber) {
+    public RentalAgreement selectRentalAgreementByCar(String vinNumber) throws SQLException {
         String mySQLStatement = "SELECT * from rental_agreement WHERE vin_number='" + vinNumber +"'";
         RentalAgreement rentalAgreement = null;
 
-        try {
-            ResultSet resultSet = statement.executeQuery(mySQLStatement);
-            System.out.println(succesMessage);
-
-            while (resultSet.next()) {
-                rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
-                        resultSet.getInt("VIN_number"),
-                        resultSet.getInt("employee_id"),
-                        resultSet.getString("drop_off"),
-                        resultSet.getDouble("price"),
-                        resultSet.getDate("date_of_agreement"),
-                        resultSet.getDate("rental_startdate"),
-                        resultSet.getDate("rental_enddtae"),
-                        resultSet.getString("license_plate"));
-            }
-
-        } catch (SQLException e) {
-            System.out.println(errorMessage);
-            e.printStackTrace();
+        ResultSet resultSet = statement.executeQuery(mySQLStatement);
+        while (resultSet.next()) {
+            rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
+                    resultSet.getString("VIN_number"),
+                    resultSet.getInt("employee_id"),
+                    resultSet.getString("drop_off"),
+                    resultSet.getDouble("price"),
+                    resultSet.getDate("date_of_agreement"),
+                    resultSet.getDate("rental_startdate"),
+                    resultSet.getDate("rental_enddtae"),
+                    resultSet.getString("license_plate"));
         }
         return rentalAgreement;
     }
 
-    public void updateRentalStatus(String vinNumber) {
+    public void updateRentalStatus(String vinNumber) throws SQLException {
         String mySQLStatement = "UPDATE fleet set is_rented='true' WHERE VIN_number='" + vinNumber + "'";
-        try {
-            statement.executeUpdate(mySQLStatement);
-            System.out.println(succesMessage);
-        } catch (SQLException e) {
-            System.out.println(errorMessage);
-            e.printStackTrace();
+        statement.executeUpdate(mySQLStatement);
+
+    }
+
+    public void addRentalAgreementToHistory(RentalAgreement rentalAgreement) throws SQLException {
+        String mySQLStatement = "INSERT INTO rental_agreement_history (customer_id, VIN_number, employee_id, dropoff, price, date_of_agreement, rental_startdate, rental_enddate, license_plate) VALUES ('" + rentalAgreement.getCustomerID() + "', '" + rentalAgreement.getVinNumber() +  "', '" + rentalAgreement.getEmployeeID() + "', '" + rentalAgreement.getDropOff() + "', '" + rentalAgreement.getPrice() + "', '" + rentalAgreement.getDateOfAgreement() + "', '" + rentalAgreement.getRentalStartdate() + "', '" + rentalAgreement.getRentalEnddate() + "', '" + rentalAgreement.getLicensePlate() + "')";
+        statement.executeUpdate(mySQLStatement);
+    }
+
+    @Override
+    public boolean create(RentalAgreement entity) throws SQLException {
+        String mySQLStatement = "INSERT INTO rental_agreement (customer_id, VIN_number, employee_id, dropoff, price, date_of_agreement, rental_startdate, rental_enddate, license_plate) VALUES ('" + entity.getCustomerID() + "', '" + entity.getVinNumber() +  "', '" + entity.getEmployeeID() + "', '" + entity.getDropOff() + "', '" + entity.getPrice() + "', '" + entity.getDateOfAgreement() + "', '" + entity.getRentalStartdate() + "', '" + entity.getRentalEnddate() + "', '" + entity.getLicensePlate() + "')";
+        statement.executeUpdate(mySQLStatement);
+        return true;
+    }
+
+    @Override
+    public RentalAgreement getSingleEntityById(int id) throws SQLException {
+        String mySQLStatement = "SELECT * FROM rental_agreement WHERE rental_agreement_id='" + id + "'";
+        ResultSet resultSet = statement.executeQuery(mySQLStatement);
+        RentalAgreement rentalAgreement = null;
+
+        while (resultSet.next()) {
+            rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
+                    resultSet.getString("VIN_number"),
+                    resultSet.getInt("employee_id"),
+                    resultSet.getString("drop_off"),
+                    resultSet.getDouble("price"),
+                    resultSet.getDate("date_of_agreement"),
+                    resultSet.getDate("rental_startdate"),
+                    resultSet.getDate("rental_enddtae"),
+                    resultSet.getString("license_plate"));
         }
+        return rentalAgreement;
+    }
+
+    @Override
+    public ArrayList<RentalAgreement> getAllEntities() throws SQLException {
+        String mySQLStatement = "SELECT * from rental_agreement";
+        ArrayList<RentalAgreement> rentalAgreements = new ArrayList<>();
+        ResultSet resultSet = statement.executeQuery(mySQLStatement);
+
+        while (resultSet.next()) {
+            RentalAgreement rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
+                    resultSet.getString("VIN_number"),
+                    resultSet.getInt("employee_id"),
+                    resultSet.getString("drop_off"),
+                    resultSet.getDouble("price"),
+                    resultSet.getDate("date_of_agreement"),
+                    resultSet.getDate("rental_startdate"),
+                    resultSet.getDate("rental_enddtae"),
+                    resultSet.getString("license_plate"));
+                rentalAgreements.add(rentalAgreement);
+            }
+        return rentalAgreements;
+    }
+
+    @Override
+    public boolean update(RentalAgreement entity) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteById(int id) throws SQLException {
+        String mySQLStatement = "DELETE FROM rental_agreement WHERE rental_agreement_ID='" + id + "'";
+        statement.executeUpdate(mySQLStatement);
+        return false;
     }
 }

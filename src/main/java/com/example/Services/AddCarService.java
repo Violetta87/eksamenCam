@@ -1,13 +1,5 @@
 package com.example.Services;
 
-import com.example.Models.Car;
-import com.example.Repositiories.AddCarsRepository;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-
 /*
 public class AddCarService {
     private AddCarsRepository addCarsRepository = new AddCarsRepository();

@@ -55,6 +55,11 @@
        <select name="rentalCar" required>
        <option th:each="car : ${availableCars}" th:value="${car.getVinNumber()}" th:text="${car.getCarDetails()}"></option>
        </select>
+
+       <label for="employeeID">Medarbejder ID:</label>
+       <br>
+       <input type="text" name="employeeID" required>
+       <br>
        <label for="dateOfAgreement">Dato:</label>
        <br>
        <input type="date" name="dateOfAgreement" required>
@@ -66,6 +71,14 @@
        <label for="rentalEnddate">Lejeaftalens udløbsdato:</label>
        <br>
        <input type="date" name="rentalEnddate" required>
+       <br>
+       <label for="dropOff">Leveringsadresse</label>
+       <br>
+       <input type="text" name="dropOff">
+       <br>
+       <label for="price">Pris:</label>
+       <br>
+       <input type="text" name="price">
        <br>
        <label for="licensePlate">Nummerplade:</label>
        <br>

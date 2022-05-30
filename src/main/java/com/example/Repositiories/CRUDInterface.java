@@ -9,13 +9,13 @@ public interface CRUDInterface <T> {
     public boolean create (T entity) throws SQLException;
 
     //Read
-    public T getSingleEntityById(int id);
-    public ArrayList<T> getAllEntities();
+    public T getSingleEntityById(int id) throws SQLException;
+    public ArrayList<T> getAllEntities() throws SQLException;
 
     //Update
-    public boolean update(T enitity);
+    public boolean update(T entity);
 
     //Delete
-    public boolean deleteById(int id);
+    public boolean deleteById(int id) throws SQLException;
 
 }
