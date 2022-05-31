@@ -23,7 +23,7 @@ public class DamageController {
     public String damagePage(){
         return "add-damage-report";
     }
-
+/*
     @PostMapping
     public String getDamageReport(@RequestParam("employee_id") int employeeID, @RequestParam("damageCost") double damageCost, @RequestParam("numberVIN") String vinNumber, @RequestParam("chassisNumber") String chassisNumber, @RequestParam("damageReport") String damageReport, @RequestParam("kilometersExceeded") int kilometersExceeded, @RequestParam("date") Date date, HttpSession session) throws SQLException {
         RentalAgreement rentalAgreement = rentalAgreementService.selectRentalAgreementByVinNumberDB(vinNumber);
@@ -32,5 +32,5 @@ public class DamageController {
 
         return "add-damage-report";
     }
-
+*/
 }

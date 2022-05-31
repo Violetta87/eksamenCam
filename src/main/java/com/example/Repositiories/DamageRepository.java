@@ -11,7 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DamageRepository implements CRUDInterface <DamageReport> {
-    // VIGTIGT! chassis_number og VIN_number skal laves om til en string i MySQL DB.
+
     private Connection connection = CreateConnectionMySQL.createConnectionToMySQL();
     private Statement statement = CreateConnectionMySQL.createStatement(connection);
 

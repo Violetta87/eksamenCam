@@ -1,21 +1,27 @@
 package com.example.Models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class RentalAgreement {
+
+    private int rentalAgreementID;
     private int customerID;
     private String vinNumber;
     private int employeeID;
-    private int rentalAgreementID;
+    private String dropOff;
     private double price;
     private Date dateOfAgreement;
     private Date rentalStartdate;
     private Date rentalEnddate;
-    private String dropOff;
     private String licensePlate;
 
 
+
+
+
     public RentalAgreement(int customerID, String vinNumber, int employeeID, String dropOff, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate) {
+        this.customerID = customerID;
         this.vinNumber = vinNumber;
         this.employeeID = employeeID;
         this.dropOff = dropOff;
@@ -23,9 +29,23 @@ public class RentalAgreement {
         this.dateOfAgreement = dateOfAgreement;
         this.rentalStartdate = rentalStartdate;
         this.rentalEnddate = rentalEnddate;
-        this.customerID = customerID;
         this.licensePlate = licensePlate;
     }
+
+
+    public RentalAgreement(int rentalAgreementID, int customerID, String vinNumber, int employeeID, String dropOff, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate) {
+        this.rentalAgreementID = rentalAgreementID;
+        this.customerID = customerID;
+        this.vinNumber = vinNumber;
+        this.employeeID = employeeID;
+        this.dropOff = dropOff;
+        this.price = price;
+        this.dateOfAgreement = dateOfAgreement;
+        this.rentalStartdate = rentalStartdate;
+        this.rentalEnddate = rentalEnddate;
+        this.licensePlate = licensePlate;
+    }
+
 
     public int getCustomerID() {
         return customerID;
@@ -105,5 +125,21 @@ public class RentalAgreement {
 
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
+    }
+
+    @Override
+    public String toString() {
+        return "RentalAgreement{" +
+                "rentalAgreementID=" + rentalAgreementID +
+                ", customerID=" + customerID +
+                ", vinNumber='" + vinNumber + '\'' +
+                ", employeeID=" + employeeID +
+                ", dropOff='" + dropOff + '\'' +
+                ", price=" + price +
+                ", dateOfAgreement=" + dateOfAgreement +
+                ", rentalStartdate=" + rentalStartdate +
+                ", rentalEnddate=" + rentalEnddate +
+                ", licensePlate='" + licensePlate + '\'' +
+                '}';
     }
 }

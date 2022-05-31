@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Tilstandsrapport</title>
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <th:block th:replace="fragment/header-fragment :: header"></th:block>
+    <th:block th:replace="fragment/header-fragment :: header('Fejl og mangler')"></th:block>
 
 
 <div id="rightBox" style="height: fit-content">
@@ -44,6 +44,8 @@
         <label for="damageCost">Pris for skader og defekter:</label>
         <br>
         <input type="text" name="damageCost">
+
+        <input type="submit" name="submit">
     </form>
 </div>
 

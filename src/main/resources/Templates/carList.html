@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>NotRentedCars</title>
@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<th:block th:replace="fragment/header-fragment :: header"></th:block>
+<th:block th:replace="fragment/header-fragment :: header('Dataregistrering')"></th:block>
 
 <th:block th:replace="fragment/sidebar-fragment :: sidebar"></th:block>
 
@@ -36,9 +36,9 @@
                 <td th:text="${car.getBrand()}"></td>
                 <td th:text="${car.getCarbonEmission()}"></td>
                 <td th:text="${car.getEquipmentLevel()}"></td>
-                <td th:text="${car.isRented()}"></td>
-                <td th:text="${car.isSold()}"></td>
-                <td th:text="${car.isDamaged()}"></td>
+                <td th:text="${car.getRented()}"></td>
+                <td th:text="${car.getSold()}"></td>
+                <td th:text="${car.getDamaged()}"></td>
                 <td th:text="${car.getChassisNumber()}"></td>
                 <td th:text="${car.getVinNumber()}"></td>
 

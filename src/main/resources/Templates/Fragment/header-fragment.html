@@ -9,16 +9,18 @@
 
 </head>
 
-<header th:fragment="header" id="header">
+<!-- thymeleaf fragnment har en paramter(funktionsinput) som vi sender med fragment, p tag har en variable som skal erstatte i fragment, hvordan den så er defineret -->
+
+<header th:fragment="header(headertext)" id="header">
     <div id="mainBox">
         <div id="buttonboxfrag">
             <button id="mainpagebutton"><a href="/add"><img src="pictures/LogoForside.png" id="logo"></a></button>
         </div>
         <div id="textBox">
-            <p th:text="${headertext}" id="headertext">DataRegistrering</p>
+            <p th:text="${headertext}" id="headertext"></p>
         </div>
         <div id="logoutbox">
-            <button id="logoutbutton"><a href="/">logout</a></button>
+            <a href="/login" style="display: block;"><button id="logoutbutton">logout</button></a>
         </div>
 
     </div>

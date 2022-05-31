@@ -1,33 +1,55 @@
 package com.example.Controllers;
 
-import com.example.Models.Customer;
+
 import com.example.Models.RentalAgreement;
-import com.example.Services.CustomerService;
+import com.example.Repositiories.RentalAgreementRepository;
+import com.example.Services.AddCarService;
 import com.example.Services.RentalAgreementService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 
 import java.sql.Date;
 import java.sql.SQLException;
 
+@Controller
 public class RentalAgreementController {
-    private CustomerService customerService = new CustomerService();
+    private RentalAgreementRepository rentalAgreementRepository = new RentalAgreementRepository();
     private RentalAgreementService rentalAgreementService = new RentalAgreementService();
+    private AddCarService addCarService = new AddCarService();
 
     @GetMapping("/add-rental-agreement")
-    public String GetRentalAgreementPage() {
+    public String GetRentalAgreementPage(Model model) {
+        model.addAttribute("availableCars",addCarService.showAvailableCars());
         return "add-rental-agreement";
     }
 
+    @PostMapping("/add-rental-agreement-model")
+    public String addRentalAgreement(WebRequest dataFromForm) {
+        String vinNumber = dataFromForm.getParameter("rentalCar");
+        int customerID= Integer.parseInt(dataFromForm.getParameter("customerID"));
+        int employeeID = Integer.parseInt(dataFromForm.getParameter("employeeID"));
+        String dateOfAgreement = dataFromForm.getParameter("dateOfAgreement");
+        String rentalStartDate = dataFromForm.getParameter("rentalStartDate");
+        String rentalEndDate = dataFromForm.getParameter("rentalEndDate");
+        String dropOff = dataFromForm.getParameter("dropOff");
+        double price = Double.dataFromForm.getParameter("price");
+        String licensePlate =dataFromForm.getParameter("licensePlate");
+
+        RentalAgreement rentalAgreement= new RentalAgreement(customerID,vinNumber,employeeID,dateOfAgreement,rentalStartDate,rentalEndDate,dropOff,price,licensePlate);
+
+
+
+        return "redirect:/dataregistrering-add";
+
+    }
+
+
+/*
+
     @PostMapping("/add-rental-agreement")
-    public String PostRentalAgreementPage(@RequestParam("firstname") String firstname,
-                                          @RequestParam("lastname") String lastname,
-                                          @RequestParam("address") String address,
-                                          @RequestParam("email") String email,
-                                          @RequestParam("phoneNumber") String phoneNumber,
-                                          @RequestParam("rentalCar") String vinNumber,
+    public String PostRentalAgreementPage(@RequestParam("rentalCar") String vinNumber,
                                           @RequestParam("dateOfAgreement") Date dateOfAgreement,
                                           @RequestParam("rentalStartdate") Date rentalStartdate,
                                           @RequestParam("rentalEnddate") Date rentalEnddate,
@@ -36,22 +58,13 @@ public class RentalAgreementController {
                                           @RequestParam("dropOff") String dropOff,
                                           @RequestParam("price") double price) throws SQLException {
 
-        Customer customer = customerService.createCustomerObject(firstname, lastname, address, email, phoneNumber);
-        customerService.insertCustomerDB(customer);
-        // customer is fetched from DB after being created to get the generated customerID
-        customer = customerService.insertAndSelectCustomer(customer);
-
-        RentalAgreement rentalAgreement = rentalAgreementService.createRentalAgreementObject(customer.getCustomerID(), vinNumber, employeeID, dropOff, price, dateOfAgreement, rentalStartdate, rentalEnddate, licensePlate);
+        RentalAgreement rentalAgreement = rentalAgreementService.insertRentalAgreementDB(vinNumber, dateOfAgreement, rentalStartdate, rentalEnddate, licensePlate,employeeID,dropOff,price);
         rentalAgreementService.insertRentalAgreementDB(rentalAgreement);
 
         return "add-rental-agreement";
+
+
     }
-    @PostMapping("/remove-rental-agreement/{rental_agreement_id}")
-    public String removeRentalAgreement(@PathVariable("rental_agreement_id") int rentalAgreementID) throws SQLException {
-        RentalAgreement rentalAgreement = rentalAgreementService.selectRentalAgreement(rentalAgreementID);
-        rentalAgreementService.insertRentalAgreementInHistoryTable(rentalAgreement);
-        rentalAgreementService.deleteRentalAgreement(rentalAgreementID);
-        return "add-rental-agreement";
-    }
+*/
 
 }

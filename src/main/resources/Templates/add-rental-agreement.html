@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Tilføj lejeaftale</title>
@@ -16,7 +16,7 @@
 
 <body>
 
-    <th:block th:replace="fragment/header-fragment :: header"></th:block>
+    <th:block th:replace="fragment/header-fragment :: header('Dataregistrering')"></th:block>
     <th:block th:replace="fragment/sidebar-fragment :: #sidebar"></th:block>
 
 <div id="rightBox" style="height: fit-content">
@@ -24,65 +24,41 @@
 
 
 
-   <form th:action="@{/add-rental-agreement}">
-       <h1>Tilføj kunde</h1>
-       <label for="name">Navn:</label>
-       <br>
-       <input type="text" name="name" required>
-       <br>
-       <label for="lastname">Efternavn:</label>
-       <br>
-       <input type="text" name="lastname" required>
-       <br>
-       <label for="address">Adresse:</label>
-       <br>
-       <input type="text" name="address" required>
-       <br>
-       <label for="email">Email:</label>
-       <br>
-       <input type="email" name="email" required>
-       <br>
-       <label for="phoneNumber">Telefonnummer: </label>
-       <br>
-       <input type="number" name="phoneNumber" required>
-       <br>
-       <input type="submit" name="add">
-       <br>
-
+   <form action="/add-rental-agreement-model" method="post" name="hej">
        <h2>Lejeaftale:</h2>
 
        <label for="rentalCar">Ledig bil til udlejning</label>
-       <select name="rentalCar" required>
-       <option th:each="car : ${availableCars}" th:value="${car.getVinNumber()}" th:text="${car.getCarDetails()}"></option>
+       <select id="rentalCar" name="rentalCar" required>
+       <option th:each="car : ${availableCars}" th:value="${car.getVinNumber()}" th:text="${car.getVinNumber()} + ' ' + ${car.getBrand()}"></option>
        </select>
 
        <label for="employeeID">Medarbejder ID:</label>
        <br>
-       <input type="text" name="employeeID" required>
+       <input type="text" name="employeeID" required id="employeeID">
        <br>
        <label for="dateOfAgreement">Dato:</label>
        <br>
-       <input type="date" name="dateOfAgreement" required>
+       <input type="date" name="dateOfAgreement" required id="dateOfAgreement">
        <br>
        <label for="rentalStartdate">Lejeaftalens ikrafttrædelsesdato:</label>
        <br>
-       <input type="date" name="rentalStartdate" required>
+       <input type="date" name="rentalStartdate" required id="rentalStartdate">
        <br>
        <label for="rentalEnddate">Lejeaftalens udløbsdato:</label>
        <br>
-       <input type="date" name="rentalEnddate" required>
+       <input type="date" name="rentalEnddate" required id="rentalEnddate">
        <br>
        <label for="dropOff">Leveringsadresse</label>
        <br>
-       <input type="text" name="dropOff">
+       <input type="text" name="dropOff" id="dropOff">
        <br>
        <label for="price">Pris:</label>
        <br>
-       <input type="text" name="price">
+       <input type="text" name="price" id="price">
        <br>
        <label for="licensePlate">Nummerplade:</label>
        <br>
-       <input type="text" name="licensePlate" minlength="7" maxlength="7" required>
+       <input type="text" name="licensePlate" minlength="7" maxlength="7" required id="licensePlate">
        <br>
        <input type="submit" name="submit">
    </form>

@@ -67,4 +67,15 @@ public class DamageReport {
         this.damageReport = damageReport;
     }
 
+    @Override
+    public String toString() {
+        return "DamageReport{" +
+                "employeeID=" + employeeID +
+                ", rentalAgreementID=" + rentalAgreementID +
+                ", kilometersExceeded=" + kilometersExceeded +
+                ", damageCost=" + damageCost +
+                ", damageReport='" + damageReport + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }

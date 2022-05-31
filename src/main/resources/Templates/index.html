@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http//www.thymeleaf.org">
 <head>
 
 
@@ -13,15 +13,15 @@
 
 <body>
     <div class="container">
-        <form th:action="@{/index}" method="post">
+        <form th:action="@{/login}" method="post">
             <img th:src="@{pictures/Logo.png}" alt="logo" width="550" height="125">
             <div class="form-group">
                 <label for="brugernavn">Brugernavn</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" required id="brugernavn" name="username">
             </div>
             <div class="form-group">
-                <label for="">Password</label>
-                <input type="password" class="form-control" required>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" required name="password" id="password">
             </div>
             <input type="submit" class="btn" value="Login">
         </form>
