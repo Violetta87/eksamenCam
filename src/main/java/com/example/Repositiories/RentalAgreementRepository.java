@@ -15,21 +15,21 @@ public class RentalAgreementRepository implements CRUDInterface <RentalAgreement
 
 
     @Override
-    public boolean create(RentalAgreement entity) throws SQLException {
+    public boolean create(RentalAgreement entity) {
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO rental_agreement(customer_id, VIN_number, employee_id, dropoff, price, date_of_agreement, rental_startdate, rental_enddate, license_plate)"
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?) ");
-
-            stmt.setInt(1, entity.getCustomerID());
-            stmt.setString(2, entity.getVinNumber());
-            stmt.setInt(3, entity.getEmployeeID());
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO rental_agreement(rental_agreement_id, customer_id, VIN_number, employee_id, drop_off, price, date_of_agreement, rental_startdate, rental_enddate, license_plate)"
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?) ");
+            stmt.setInt(1,entity.getRentalAgreementID());
+            stmt.setInt(2, entity.getCustomerID());
+            stmt.setString(3, entity.getVinNumber());
             stmt.setInt(4, entity.getEmployeeID());
-            stmt.setString(5, entity.getDropOff());
-            stmt.setDouble(6, entity.getPrice());
-            stmt.setDate(7, entity.getDateOfAgreement());
-            stmt.setDate(8, entity.getRentalStartdate());
-            stmt.setDate(9, entity.getRentalEnddate());
-            stmt.setString(10, entity.getLicensePlate());
+            stmt.setInt(5, entity.getEmployeeID());
+            stmt.setString(6, entity.getDropOff());
+            stmt.setDouble(7, entity.getPrice());
+            stmt.setString(8, entity.getDateOfAgreement());
+            stmt.setString(9, entity.getRentalStartdate());
+            stmt.setString(10, entity.getRentalEnddate());
+            stmt.setString(11, entity.getLicensePlate());
 
             stmt.executeUpdate();
             System.out.println("rentalagreement has been created");
@@ -55,13 +55,14 @@ public class RentalAgreementRepository implements CRUDInterface <RentalAgreement
 
         while (resultSet.next()) {
             rentalAgreement = new RentalAgreement(resultSet.getInt("customer_id"),
+                    resultSet.getInt("rental_agreement_id"),
                     resultSet.getString("VIN_number"),
                     resultSet.getInt("employee_id"),
                     resultSet.getString("drop_off"),
                     resultSet.getDouble("price"),
-                    resultSet.getDate("date_of_agreement"),
-                    resultSet.getDate("rental_startdate"),
-                    resultSet.getDate("rental_enddtae"),
+                    resultSet.getString("date_of_agreement"),
+                    resultSet.getString("rental_startdate"),
+                    resultSet.getString("rental_enddtae"),
                     resultSet.getString("license_plate"));
         }
         return rentalAgreement;
@@ -78,16 +79,16 @@ public class RentalAgreementRepository implements CRUDInterface <RentalAgreement
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                int rentalAgreementID = rs.getInt("rentalAgreementID");
-                int customerID = rs.getInt("customerId");
-                int employeeID = rs.getInt("employeeID");
-                String vinNumber = rs.getString("vinNumber");
+                int rentalAgreementID = rs.getInt("rental_agreement_id");
+                int customerID = rs.getInt("customer_id");
+                int employeeID = rs.getInt("employee_id");
+                String vinNumber = rs.getString("VIN_number");
                 double price = rs.getDouble("price");
-                LocalDate dateOfAgreement = rs.getDate("dateOfAgreement");
-                Date rentalStartdate = rs.getDate("rentalStartdate");
-                Date rentalEnddate = rs.getDate("rentalEnddate");
-                String dropOff = rs.getString("dropoff");
-                String licensePlate = rs.getString("licensePlate");
+                String dateOfAgreement = rs.getString("date_of_agreement");
+                String rentalStartdate = rs.getString("rental_startdate");
+                String rentalEnddate = rs.getString("rental_enddate");
+                String dropOff = rs.getString("drop_off");
+                String licensePlate = rs.getString("license_plate");
 
                RentalAgreement newRentalAgreement = new RentalAgreement(rentalAgreementID, customerID, vinNumber, employeeID, dropOff, price, dateOfAgreement, rentalStartdate, rentalEnddate, licensePlate);
                 rentalAgreements.add(newRentalAgreement);

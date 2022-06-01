@@ -1,6 +1,7 @@
 package com.example.utility;
 
 import java.sql.*;
+/*Camella*/
 
 public class CreateConnectionMySQL {
 
@@ -22,23 +23,4 @@ public class CreateConnectionMySQL {
         return connection;
     }
 
-    public static ResultSet createQuery(String queryString, Statement statement) {
-        ResultSet resultSet = null;
-        try {
-            resultSet = statement.executeQuery(queryString);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    public static Statement createStatement(Connection connection) {
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return statement;
-    }
 }

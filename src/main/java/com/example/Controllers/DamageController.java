@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.SQLException;
 
+/*Carl EMil*/
+
 @Controller
 public class DamageController {
     private DamageService damageService = new DamageService();
@@ -23,14 +25,6 @@ public class DamageController {
     public String damagePage(){
         return "add-damage-report";
     }
-/*
-    @PostMapping
-    public String getDamageReport(@RequestParam("employee_id") int employeeID, @RequestParam("damageCost") double damageCost, @RequestParam("numberVIN") String vinNumber, @RequestParam("chassisNumber") String chassisNumber, @RequestParam("damageReport") String damageReport, @RequestParam("kilometersExceeded") int kilometersExceeded, @RequestParam("date") Date date, HttpSession session) throws SQLException {
-        RentalAgreement rentalAgreement = rentalAgreementService.selectRentalAgreementByVinNumberDB(vinNumber);
-        DamageReport damageReportObject = damageService.createDamageReportObject(employeeID, rentalAgreement.getRentalAgreementID(), kilometersExceeded, damageCost, damageReport, date);
-        damageService.insertDamageReportDB(damageReportObject);
 
-        return "add-damage-report";
-    }
-*/
+
 }

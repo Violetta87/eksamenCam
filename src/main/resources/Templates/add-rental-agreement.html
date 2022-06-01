@@ -31,22 +31,27 @@
        <select id="rentalCar" name="rentalCar" required>
        <option th:each="car : ${availableCars}" th:value="${car.getVinNumber()}" th:text="${car.getVinNumber()} + ' ' + ${car.getBrand()}"></option>
        </select>
-
+       <input type="number" name="rentalAgreementID" required id="rentalAgreementID">
+       <br>
+       <label for="customerID">Kunde ID</label>
+       <br>
+       <input type="tekst" name="customerID" required id="customerID">
+       <br>
        <label for="employeeID">Medarbejder ID:</label>
        <br>
        <input type="text" name="employeeID" required id="employeeID">
        <br>
        <label for="dateOfAgreement">Dato:</label>
        <br>
-       <input type="date" name="dateOfAgreement" required id="dateOfAgreement">
+       <input type="text" name="dateOfAgreement" required id="dateOfAgreement">
        <br>
        <label for="rentalStartdate">Lejeaftalens ikrafttrædelsesdato:</label>
        <br>
-       <input type="date" name="rentalStartdate" required id="rentalStartdate">
+       <input type="text" name="rentalStartdate" required id="rentalStartdate">
        <br>
        <label for="rentalEnddate">Lejeaftalens udløbsdato:</label>
        <br>
-       <input type="date" name="rentalEnddate" required id="rentalEnddate">
+       <input type="text" name="rentalEnddate" required id="rentalEnddate">
        <br>
        <label for="dropOff">Leveringsadresse</label>
        <br>
@@ -64,5 +69,10 @@
    </form>
 
 </div>
+<script>
+    function setInputAttribue() {
+
+    }
+</script>
 </body>
 </html>

@@ -11,29 +11,13 @@ public class RentalAgreement {
     private int employeeID;
     private String dropOff;
     private double price;
-    private Date dateOfAgreement;
-    private Date rentalStartdate;
-    private Date rentalEnddate;
+    private String dateOfAgreement;
+    private String rentalStartdate;
+    private String rentalEnddate;
     private String licensePlate;
 
 
-
-
-
-    public RentalAgreement(int customerID, String vinNumber, int employeeID, String dropOff, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate) {
-        this.customerID = customerID;
-        this.vinNumber = vinNumber;
-        this.employeeID = employeeID;
-        this.dropOff = dropOff;
-        this.price = price;
-        this.dateOfAgreement = dateOfAgreement;
-        this.rentalStartdate = rentalStartdate;
-        this.rentalEnddate = rentalEnddate;
-        this.licensePlate = licensePlate;
-    }
-
-
-    public RentalAgreement(int rentalAgreementID, int customerID, String vinNumber, int employeeID, String dropOff, double price, Date dateOfAgreement, Date rentalStartdate, Date rentalEnddate, String licensePlate) {
+    public RentalAgreement(int rentalAgreementID, int customerID, String vinNumber, int employeeID, String dropOff, double price, String dateOfAgreement, String rentalStartdate, String rentalEnddate, String licensePlate) {
         this.rentalAgreementID = rentalAgreementID;
         this.customerID = customerID;
         this.vinNumber = vinNumber;
@@ -46,6 +30,29 @@ public class RentalAgreement {
         this.licensePlate = licensePlate;
     }
 
+    @Override
+    public String toString() {
+        return "RentalAgreement{" +
+                "rentalAgreementID=" + rentalAgreementID +
+                ", customerID=" + customerID +
+                ", vinNumber='" + vinNumber + '\'' +
+                ", employeeID=" + employeeID +
+                ", dropOff='" + dropOff + '\'' +
+                ", price=" + price +
+                ", dateOfAgreement='" + dateOfAgreement + '\'' +
+                ", rentalStartdate='" + rentalStartdate + '\'' +
+                ", rentalEnddate='" + rentalEnddate + '\'' +
+                ", licensePlate='" + licensePlate + '\'' +
+                '}';
+    }
+
+    public int getRentalAgreementID() {
+        return rentalAgreementID;
+    }
+
+    public void setRentalAgreementID(int rentalAgreementID) {
+        this.rentalAgreementID = rentalAgreementID;
+    }
 
     public int getCustomerID() {
         return customerID;
@@ -71,12 +78,12 @@ public class RentalAgreement {
         this.employeeID = employeeID;
     }
 
-    public int getRentalAgreementID() {
-        return rentalAgreementID;
+    public String getDropOff() {
+        return dropOff;
     }
 
-    public void setRentalAgreementID(int rentalAgreementID) {
-        this.rentalAgreementID = rentalAgreementID;
+    public void setDropOff(String dropOff) {
+        this.dropOff = dropOff;
     }
 
     public double getPrice() {
@@ -87,36 +94,28 @@ public class RentalAgreement {
         this.price = price;
     }
 
-    public Date getDateOfAgreement() {
+    public String getDateOfAgreement() {
         return dateOfAgreement;
     }
 
-    public void setDateOfAgreement(Date dateOfAgreement) {
+    public void setDateOfAgreement(String dateOfAgreement) {
         this.dateOfAgreement = dateOfAgreement;
     }
 
-    public Date getRentalStartdate() {
+    public String getRentalStartdate() {
         return rentalStartdate;
     }
 
-    public void setRentalStartdate(Date rentalStartdate) {
+    public void setRentalStartdate(String rentalStartdate) {
         this.rentalStartdate = rentalStartdate;
     }
 
-    public Date getRentalEnddate() {
+    public String getRentalEnddate() {
         return rentalEnddate;
     }
 
-    public void setRentalEnddate(Date rentalEnddate) {
+    public void setRentalEnddate(String rentalEnddate) {
         this.rentalEnddate = rentalEnddate;
-    }
-
-    public String getDropOff() {
-        return dropOff;
-    }
-
-    public void setDropOff(String dropOff) {
-        this.dropOff = dropOff;
     }
 
     public String getLicensePlate() {
@@ -125,21 +124,5 @@ public class RentalAgreement {
 
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
-    }
-
-    @Override
-    public String toString() {
-        return "RentalAgreement{" +
-                "rentalAgreementID=" + rentalAgreementID +
-                ", customerID=" + customerID +
-                ", vinNumber='" + vinNumber + '\'' +
-                ", employeeID=" + employeeID +
-                ", dropOff='" + dropOff + '\'' +
-                ", price=" + price +
-                ", dateOfAgreement=" + dateOfAgreement +
-                ", rentalStartdate=" + rentalStartdate +
-                ", rentalEnddate=" + rentalEnddate +
-                ", licensePlate='" + licensePlate + '\'' +
-                '}';
     }
 }

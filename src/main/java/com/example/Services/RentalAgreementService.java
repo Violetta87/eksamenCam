@@ -16,25 +16,11 @@ public class RentalAgreementService {
 
 
     public void insertRentalAgreementDB(RentalAgreement rentalAgreement) {
-        try {
-            rentalAgreementRepository.create(rentalAgreement);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        rentalAgreementRepository.create(rentalAgreement);
     }
 
 
-    public double currentRentalIncome() throws SQLException {
-        ArrayList<RentalAgreement> activeRentalAgreements = rentalAgreementRepository.getAllEntities();
-        double accumulatedPrice = 0;
-
-        for (int i = 0; i < activeRentalAgreements.size(); i++) {
-            accumulatedPrice += activeRentalAgreements.get(i).getPrice();
-        }
-        return accumulatedPrice;
-    }
-
-    public ArrayList<Car> getAllCarsCurrentlyRentedOut() throws SQLException {
+    public ArrayList<Car> getAllCarsRentedOut() throws SQLException {
         return fleetRepository.selectCarsByRentalStatus(true);
     }
 
